@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload. Adding a new text.
+          Edit <code>src/App.js</code> and save to reload. Adding a new text from edri branch.
         </p>
         <a
           className="App-link"
