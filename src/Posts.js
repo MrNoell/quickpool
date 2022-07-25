@@ -32,7 +32,8 @@ const Posts = () => {
             time: time,
             date: date,
             price: price,
-            name: name
+            name: name,
+            isBooked: false
         });
     }
 
