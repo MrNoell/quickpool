@@ -3,6 +3,10 @@ import { getDatabase, ref, onValue, set, update} from "firebase/database";
 import { app } from './firebase_config.js';
 
 function Post(props) {
+    // const [disable, setDisable] = useState(false);
+
+
+
     // const [booked, setBooked] = useState("Book")
 
     // function bookRide() {
@@ -14,7 +18,7 @@ function Post(props) {
         update(ref(db, 'posts/' + index), {
             isBooked: true
         });
-        // setBooked("Booked")
+        
     }
 
     return (
@@ -24,10 +28,9 @@ function Post(props) {
             <div className="div3">{props.time}</div>
             <div className="div4">{props.date}</div>
             <div className="div5">{props.price}</div>
-            <div className="div6"><button onClick={() => updatePost(props.index)}>{props.isBooked ? "Booked" : "Book"}</button></div>
+            <div className="div6"><button onClick={() => updatePost(props.index)} disabled={props.isBooked} className="book-button">{props.isBooked ? "Booked" : "Book"}</button></div>
         </div>
     )
-    //loc, time, date, price, button
 }
 
 function Feed() {
@@ -52,7 +55,7 @@ function Feed() {
 
     return (
         <div className="feed">
-            <h1>Find a trip:</h1>
+            <h1>Find a trip</h1>
             {
                 posts.map(
                     (post, index) => (
