@@ -1,7 +1,8 @@
 :root {
   --background: #FFF;
   --blue: #0d3b66;
-  --gray: #F3F4F6;;
+  --gray: #F3F4F6;
+  ;
   --orange: #f29559;
 }
 
@@ -54,9 +55,13 @@ li a:hover {
 
 h1 {
   font-family: 'Montserrat';
-  float: left;
+  /* float: left;
   text-align: left !important;
-  align-self: flex-start;
+  align-self: flex-start; */
+  padding-left: 9%;
+}
+
+h2 {
   padding-left: 9%;
 }
 
@@ -140,8 +145,6 @@ h1 {
   justify-content: center;
 }
 
-
-/* CSS */
 .book-button {
   appearance: none;
   background-color: var(--orange);
@@ -186,4 +189,42 @@ h1 {
   height: 16px;
   padding: 0px;
   margin: 0px;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.profile-img-container { grid-area: 1 / 1 / 3 / 2; }
+.profile-name-container { grid-area: 1 / 2 / 2 / 3; }
+.profile-contact-container { grid-area: 2 / 2 / 3 / 3; }
+.profile-history-container { grid-area: 3 / 1 / 4 / 3; }
+
+.profile-picture {
+  width: 250px;
+  border-radius: 50%;
+  margin: 50px;
+}
+
+.profile-name {
+  margin-left: -420px;
+  margin-top: 100px;
+}
+
+.profile-contact-container {
+    margin-left: -350px;
+    margin-top: -50px;
+}
+
+.profile-history-container {
+  margin-left: -80px;
+}
+
+.profile-feed {
+  margin: 0px;
+  padding: 0px;
 }
