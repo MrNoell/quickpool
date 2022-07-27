@@ -16,7 +16,6 @@ function Profile() {
             </div>
             <div className="profile-history-container">
                 <h2>History (20)</h2>
-                {/* <Feed /> */}
             </div>
         </div>
     )
