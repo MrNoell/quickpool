@@ -131,7 +131,7 @@ h2 {
 }
 
 .newPost {
-  background-color: red;
+  background-color: var(--orange);
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -241,4 +241,16 @@ h2 {
 .profile-feed {
   margin: 0px;
   padding: 0px;
+}
+
+.newpost-form-container {
+  margin: 40px;
+}
+
+.newpost-input {
+  margin: 10px;
+  border: none;
+  border-bottom: 2px solid;
+  border-color: var(--orange);
+  outline: none;
 }

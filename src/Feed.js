@@ -56,6 +56,7 @@ function Feed() {
 
     return (
         <div className="feed">
+            
             <form className="search">
                 <div>
                     <input type="text" value={nameSearch} onChange={(event) => { setNameSearch(event.target.value) }} className="search-input" placeholder="Filter by name"/>
@@ -72,16 +73,7 @@ function Feed() {
                         <Post index={index} name={post.name} from={post.from} to={post.to} time={post.time} date={post.date} price={post.price} isBooked={post.isBooked} />
                     )
                 })
-
             }
-
-                {/* posts.filter(post => nameSearch != "" && post.name.includes(nameSearch)).map(
-                     (post, index) => (
-                         <Post index={index} name={post.name} from={post.from} to={post.to} time={post.time} date={post.date} price={post.price} isBooked={post.isBooked} />
-                     )
-             ) */}
-             
-
             <div className='newPost'>+</div>
         </div>
     )
