@@ -5,15 +5,20 @@ import {
   Autocomplete,
   DirectionsRenderer,
 } from '@react-google-maps/api'
-import { useRef, useState } from 'react'
+import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { app } from './firebase_config.js';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 
 
 const center = { lat: 41.1533, lng: 20.1683}
+const Child = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => ({
+  showNewPost() {
+    setStyle({display: "grid", transform: "translateY(-100%)"});
+  }
+  }));
 
-
-const Map = () => {
+ const Map = () => {
   getCurrentLocation(center);
 
   const [posts, setPosts] = useState([])
