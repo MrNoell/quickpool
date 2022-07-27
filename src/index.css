@@ -86,6 +86,25 @@ h1 {
   /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
 }
 
+.container {
+  display: flex;
+  justify-content: 'center';
+  background-color: '#FF6F59';
+  padding: 8;
+}
+
+.input {
+  /* padding 20;
+  paddingVertical: 8, */
+  background-color: 'white';
+  outline-color: 'white';
+  border-radius: 1;
+  font-size: 15;
+  margin-top: 4;
+  margin-bottom: 4;
+}
+
+
 .div1 {
   grid-area: 1 / 1 / 2 / 2;
   font-weight: bold;
