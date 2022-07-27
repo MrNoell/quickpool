@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getDatabase, ref, onValue, set, update} from "firebase/database";
 import { app } from './firebase_config.js';
+import Map from './Map.js';
 
 function Post(props) {
     // const [disable, setDisable] = useState(false);
@@ -64,6 +65,7 @@ function Feed() {
                 )
             }
             <div className='newPost'>+</div>
+            <Map/>
         </div>
     )
 }
