@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { app } from './firebase_config.js';
 
-const SignUp = () => {
+const LogIn = () => {
   const [users, setUsers] = useState([])
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -38,30 +38,39 @@ const readUsers = () => {
   //function: if a user exists in the database, navigate them to the home screen
   //else, add them to the database and navigate them to home
 
+  
+
+  
+
 //
 
-  const writeUser = (userId, name, email, password) => {
-    const db = getDatabase(app);
-    set(ref(db, 'users/' + userId), {
-      name: name,
-      email: email,
-      password: password
-    });
-  }
-
-  const execute = () => {
+const execute = () => {
     //readUsers();
     const isFound = users.some(user => {
     console.log(user);
       if (user.name === name && user.password === password && user.email === email) {
-        console.log('array contains object with this specific name');
-    //display alert showing to return to the Login Page
+        return true;
       }
 
-      console.log('user does not exist.');
-      writeUser(users.length + 1, name, email, password);
-  });}
+      return false;
+  });
 
+  if (isFound) {
+    console.log('array contains object with this specific name');
+  }
+
+  console.log('user does not exist.');
+
+  }
+
+//   const writeUser = (userId, name, email, password) => {
+//     const db = getDatabase(app);
+//     set(ref(db, 'users/' + userId), {
+//       name: name,
+//       email: email,
+//       password: password
+//     });
+//   }
 
   useEffect(() => {
     readUsers()
@@ -69,8 +78,8 @@ const readUsers = () => {
 
   return (
     <>
-      <p> Sign Up: </p>
-      <form onSubmit={() => execute()}>
+      <p> Log In: </p>
+      <form onSubmit={() => execute(users, name, email, password)}>
         <div>
           <label>
             Name: 
@@ -90,7 +99,7 @@ const readUsers = () => {
           </label>
         </div>
         <div>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Log In" />
         </div>
       </form>
       {/* {users.map(
@@ -106,4 +115,4 @@ const readUsers = () => {
   )
 }
 
-export default SignUp;
+export default LogIn;
