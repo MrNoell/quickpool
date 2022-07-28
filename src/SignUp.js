@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react'
 
+import { BrowserRouter, Link, useNavigate, Routes, Route } from 'react-router-dom';
+
+import Feed from './Feed.js';
+
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { app } from './firebase_config.js';
 
@@ -8,6 +12,7 @@ const SignUp = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const navigate = useNavigate()
 
 //   const readPosts = () => {
 //     const db = getDatabase(app);
@@ -51,16 +56,27 @@ const readUsers = () => {
 
   const execute = () => {
     //readUsers();
-    const isFound = users.some(user => {
-    console.log(user);
+    let isFound = false
+
+    users.forEach(user => {
+      console.log(user);
+      console.log(name)
+      console.log(password)
+      console.log(email)
       if (user.name === name && user.password === password && user.email === email) {
+        isFound = true
         console.log('array contains object with this specific name');
     //display alert showing to return to the Login Page
+      } else {
+        console.log('user does not exist.');
       }
+    })
 
-      console.log('user does not exist.');
+    if (!isFound) {
       writeUser(users.length + 1, name, email, password);
-  });}
+      navigate("/Feed");
+    }
+  }
 
 
   useEffect(() => {
@@ -73,7 +89,7 @@ const readUsers = () => {
       <form onSubmit={() => execute() } class="sign-up-form">
             <input type="text" placeholder='Name' class="authentication-input" value={name} onChange={(event) => setName(event.target.value)} />
             <input type="text" placeholder='E-Mail' class="authentication-input" value={email} onChange={(event) => setEmail(event.target.value)} />
-            <input type="text" placeholder='Password' class="authentication-input" value={password} onChange={(event) => setPassword(event.target.value)} />
+            <input type="password" placeholder='Password' class="authentication-input" value={password} onChange={(event) => setPassword(event.target.value)} />
           <input type="submit" value="Submit" class="book-button authenticate-button" />
       </form>
       {/* {users.map(

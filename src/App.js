@@ -8,15 +8,16 @@ import SignUp from './SignUp';
 import LogIn from './LogIn';
 
 function App() {
+  console.log()
   return (
     <div className="App">
       <BrowserRouter>
         <nav>
           <li>
-            <Link to="/"><img src={logo} className="logo"/></Link>
+            <Link to="/Feed"><img src={logo} className="logo"/></Link>
           </li>
           <li>
-            <Link to="/">Feed</Link>
+            <Link to="/Feed">Feed</Link>
           </li>
           <li>
             <Link to="/newPost">New Post</Link>
@@ -27,10 +28,10 @@ function App() {
         </nav>
 
         <Routes>
-          <Route index element={<Feed />} />
+          <Route index element={<SignUp />} />
           <Route path={"newPost/"} element={<NewPost />} />
           <Route path={"profile/"} element={<Profile />} />
-          <Route path={"signUp/"} element={<SignUp/>}/>
+          <Route path={"Feed/"} element={<Feed/>}/>
           <Route path={"logIn/"} element={<LogIn/>} />
         </Routes>
       </BrowserRouter>
