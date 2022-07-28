@@ -115,6 +115,8 @@ function Feed() {
         setDuration('')
         originRef.current.value = ''
         destinationRef.current.value = ''
+        setFrom('')
+        setTo('')
     }
 
     function getCurrentLocation(center) {
@@ -161,7 +163,10 @@ function Feed() {
             <button className='newPost' onClick={toggleNewPost}>+</button>
             
             <form id='NewPost' style={style} onSubmit={() => writePost(posts.length + 1, from, to, time, date, price)}>
-                <button type="button" class='exit' onClick={toggleNewPost}>✖</button>
+                <button type="button" class='exit' onClick={() => {
+                    toggleNewPost();
+                    clearRoute();
+                }}>✖</button>
                 <div id='new-post-form'>
                     <Autocomplete><input type='text' placeholder='Origin' ref={originRef} className="new-post-input" value={from} onChange={(event) => setFrom(event.target.value)} /></Autocomplete>
                     <Autocomplete><input type='text' placeholder='Destination' ref={destinationRef} className="new-post-input" onKeyUp={calculateRoute} value={to} onChange={(event) => setTo(event.target.value)} /></Autocomplete>
