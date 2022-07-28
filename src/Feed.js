@@ -76,7 +76,7 @@ function Feed() {
     }
 
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: "AIzaSyAeOhfgPhXJQRq2_cIZP9wv5gJbE9FwO6c",
+        googleMapsApiKey: "BOLLANOOOO",
         libraries: ['places'],
     })
 
