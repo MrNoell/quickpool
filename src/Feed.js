@@ -76,7 +76,7 @@ function Feed() {
     }
 
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: "AIzaSyDp26-C8mLKJkUHwpCklhaAt2YN0gqUbkk",
+        googleMapsApiKey: "AIzaSyAeOhfgPhXJQRq2_cIZP9wv5gJbE9FwO6c",
         libraries: ['places'],
     })
 
