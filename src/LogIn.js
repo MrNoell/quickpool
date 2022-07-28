@@ -77,30 +77,13 @@ const execute = () => {
   }, [])
 
   return (
-    <>
-      <p> Log In: </p>
-      <form onSubmit={() => execute(users, name, email, password)}>
-        <div>
-          <label>
-            Name: 
-            <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Email: 
-            <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password: 
-            <input type="text" value={password} onChange={(event) => setPassword(event.target.value)} />
-          </label>
-        </div>
-        <div>
-          <input type="submit" value="Log In" />
-        </div>
+    <div class="sign-up-container">
+      <h1> Log In </h1>
+      <form onSubmit={() => execute(users, name, email, password)} class="sign-up-form">
+            <input type="text" placeholder="Name" class="authentication-input" value={name} onChange={(event) => setName(event.target.value)} />
+            <input type="text" placeholder="E-Mail" class="authentication-input" value={email} onChange={(event) => setEmail(event.target.value)} />
+            <input type="text" placeholder="Password" class="authentication-input" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <input type="submit" value="Log In" class="book-button authenticate-button" />
       </form>
       {/* {users.map(
         user => (
@@ -111,7 +94,7 @@ const execute = () => {
           </div>
         )
       )} */}
-    </>
+    </div>
   )
 }
 

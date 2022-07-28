@@ -68,30 +68,13 @@ const readUsers = () => {
   }, [])
 
   return (
-    <>
-      <p> Sign Up: </p>
-      <form onSubmit={() => execute()}>
-        <div>
-          <label>
-            Name: 
-            <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Email: 
-            <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password: 
-            <input type="text" value={password} onChange={(event) => setPassword(event.target.value)} />
-          </label>
-        </div>
-        <div>
-          <input type="submit" value="Submit" />
-        </div>
+    <div class="sign-up-container">
+      <h1> Sign Up </h1>
+      <form onSubmit={() => execute() } class="sign-up-form">
+            <input type="text" placeholder='Name' class="authentication-input" value={name} onChange={(event) => setName(event.target.value)} />
+            <input type="text" placeholder='E-Mail' class="authentication-input" value={email} onChange={(event) => setEmail(event.target.value)} />
+            <input type="text" placeholder='Password' class="authentication-input" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <input type="submit" value="Submit" class="book-button authenticate-button" />
       </form>
       {/* {users.map(
         user => (
@@ -102,7 +85,7 @@ const readUsers = () => {
           </div>
         )
       )} */}
-    </>
+    </div>
   )
 }
 

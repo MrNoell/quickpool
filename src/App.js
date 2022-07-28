@@ -3,7 +3,9 @@ import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 import Feed from './Feed.js';
 import NewPost from './NewPost.js';
 import Profile from './Profile';
-import logo from './img/logo.png'
+import logo from './img/logo.png';
+import SignUp from './SignUp';
+import LogIn from './LogIn';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route index element={<Feed />} />
           <Route path={"newPost/"} element={<NewPost />} />
           <Route path={"profile/"} element={<Profile />} />
+          <Route path={"signUp/"} element={<SignUp/>}/>
+          <Route path={"logIn/"} element={<LogIn/>} />
         </Routes>
       </BrowserRouter>
     </div>
