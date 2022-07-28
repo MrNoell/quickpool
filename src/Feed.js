@@ -137,8 +137,9 @@ function Feed() {
         styleDuplicate.transform = (style.transform == "translateY(50%)") ? "translateY(-100%)" : "translateY(50%)";
         styleDuplicate.transition = "transform 0.45s ease-in-out"
         setStyle(styleDuplicate)
-
     }
+
+    
     return (
         <div className="feed">
 
@@ -174,6 +175,7 @@ function Feed() {
                     <input type='text' placeholder='Date' className="new-post-input" value={date} onChange={(event) => setDate(event.target.value)} />
                     <input type='text' placeholder='Price' className="new-post-input" value={price} onChange={(event) => setPrice(event.target.value)} />
                 </div>
+
                 <GoogleMap
                     id='google-map'
                     center={center}
@@ -188,6 +190,7 @@ function Feed() {
                 >
                     <Marker position={center} />{directionsResponse && (<DirectionsRenderer directions={directionsResponse} />)}
                 </GoogleMap>
+                
                 <button type="submit" class='book-button post' onClick={toggleNewPost}>Post</button>
             </form> 
         </div>
