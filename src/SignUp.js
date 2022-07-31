@@ -14,19 +14,6 @@ const SignUp = () => {
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
 
-//   const readPosts = () => {
-//     const db = getDatabase(app);
-//     const dbRef = ref(db, 'posts/');
-//     onValue(dbRef, (snapshot) => {
-//       const dbTable = snapshot.val();
-//       const newPosts = []
-//       dbTable.forEach((dbItem) => {
-//         newPosts.push(dbItem)
-//       })
-//       setPosts(newPosts)
-//     })
-//   }
-
 const readUsers = () => {
     const db = getDatabase(app);
     const dbRef = ref(db, 'users/');
@@ -40,11 +27,6 @@ const readUsers = () => {
     })
   }
 
-  //function: if a user exists in the database, navigate them to the home screen
-  //else, add them to the database and navigate them to home
-
-//
-
   const writeUser = (userId, name, email, password) => {
     const db = getDatabase(app);
     set(ref(db, 'users/' + userId), {
@@ -55,7 +37,6 @@ const readUsers = () => {
   }
 
   const execute = () => {
-    //readUsers();
     let isFound = false
 
     users.forEach(user => {
@@ -66,7 +47,6 @@ const readUsers = () => {
       if (user.name === name && user.password === password && user.email === email) {
         isFound = true
         console.log('array contains object with this specific name');
-    //display alert showing to return to the Login Page
       } else {
         console.log('user does not exist.');
       }
@@ -92,15 +72,6 @@ const readUsers = () => {
             <input type="password" placeholder='Password' class="authentication-input" value={password} onChange={(event) => setPassword(event.target.value)} />
           <input type="submit" value="Submit" class="book-button authenticate-button" />
       </form>
-      {/* {users.map(
-        user => (
-          <div>
-            <p>{user.name}</p>
-            <p>{user.email}</p>
-            <p>{user.password}</p>
-          </div>
-        )
-      )} */}
     </div>
   )
 }
